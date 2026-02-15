@@ -6,6 +6,8 @@ A comprehensive, interactive web-based platform designed to help developers prep
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Platform](https://img.shields.io/badge/Platform-Web-orange)
 
+🌐 **[Live Demo](https://alhusso.com/smartprep/)** - Try SmartPrep now!
+
 ## ✨ Features
 
 - **18+ Technical Topics** - Comprehensive coverage of Java, Spring, JavaScript, React, DSA, System Design, and more
@@ -52,7 +54,15 @@ A comprehensive, interactive web-based platform designed to help developers prep
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Online Access
+
+You can access SmartPrep directly at: **[https://alhusso.com/smartprep/](https://alhusso.com/smartprep/)**
+
+No installation required! Just open the link in your browser and start practicing.
+
+### Local Installation
+
+#### Prerequisites
 
 - A modern web browser (Chrome, Firefox, Safari, or Edge)
 - Python 3.x (for running the local server)
@@ -61,7 +71,7 @@ A comprehensive, interactive web-based platform designed to help developers prep
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/SmartPrep.git
+   git clone https://github.com/alhussaintalukder/SmartPrep.git
    cd SmartPrep
    ```
 
@@ -220,7 +230,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Built with ❤️ for the developer community
 - Special thanks to all contributors
 
-## 📧 Contact
+## � Links
+
+- **Live Application**: [https://alhusso.com/smartprep/](https://alhusso.com/smartprep/)
+- **GitHub Repository**: [https://github.com/alhussaintalukder/SmartPrep](https://github.com/alhussaintalukder/SmartPrep)
+- **Main Website**: [https://alhusso.com](https://alhusso.com)
+
+## �📧 Contact
 
 For questions, suggestions, or feedback, please open an issue on GitHub.
 

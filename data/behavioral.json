@@ -1,0 +1,145 @@
+{
+  "topic": "Behavioral",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Tell me about yourself",
+      "answer": "**Structure**: Present → Past → Future\n\n**Example**:\n'Currently, I'm a Full Stack Developer at Freshen, working with React Native and Spring Boot to build mobile applications. Previously, I spent 5+ years at webNanny developing enterprise solutions, where I gained deep expertise in Java and microservices architecture. I recently completed my PG Diploma from BUET with 90+ scores in Software Engineering and DSA. I'm passionate about building scalable systems and recently published my own app, SmartList, on Google Play. I'm excited about this opportunity because...'",
+      "explanation": "Keep it professional and relevant to the job. Highlight current role, key achievements, education, and why you're interested in this position. Keep it to 1-2 minutes. End with enthusiasm for the opportunity.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "What is your greatest strength?",
+      "answer": "**Choose relevant strength** and provide evidence.\n\n**Example**:\n'My greatest strength is problem-solving, especially in distributed systems. At webNanny, I redesigned our microservices communication pattern, reducing API response time by 40%. I used message queues to decouple services and implemented circuit breakers for fault tolerance. This experience taught me to analyze complex problems systematically and find elegant solutions. I'm always looking for ways to optimize and improve systems.'",
+      "explanation": "Pick a strength relevant to the role (technical skills, leadership, communication). Back it with a specific example and quantifiable results. Show how it adds value.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "What is your greatest weakness?",
+      "answer": "**Be honest but show improvement**.\n\n**Example**:\n'I tend to be a perfectionist, which sometimes slows me down. Early in my career, I'd spend too much time optimizing code that didn't need it. I've learned to prioritize and focus on business impact first. Now I follow the 80/20 rule - deliver working solution quickly, then iterate. I also use code reviews to get feedback early rather than polishing alone. This has made me much more efficient while maintaining quality.'",
+      "explanation": "Avoid clichés like 'I work too hard'. Choose a real weakness and demonstrate self-awareness and growth. Show how you're actively working on it with concrete steps.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "Describe a challenging project you worked on",
+      "answer": "**Use STAR method**: Situation, Task, Action, Result\n\n**Example**:\n**Situation**: At Freshen, our mobile app had poor offline capabilities, causing user complaints.\n**Task**: I was tasked with implementing offline-first architecture.\n**Action**: I researched solutions, chose Redux Persist + AsyncStorage, implemented local-first CRUD operations with sync queue, added conflict resolution for concurrent updates, and wrote comprehensive tests.\n**Result**: User retention improved by 25%, app rating went from 3.8 to 4.5 stars, and support tickets decreased by 40%.",
+      "explanation": "Choose a project showing technical depth and business impact. Explain the challenge, your approach, technologies used, obstacles overcome, and measurable results. Show ownership and initiative.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "How do you handle tight deadlines?",
+      "answer": "**Prioritization + Communication**\n\n**Example**:\n'When faced with tight deadlines, I first clarify requirements and identify MVP features versus nice-to-haves. I break the work into tasks and estimate effort realistically. If the deadline is truly unrealistic, I communicate early with stakeholders to adjust scope or timeline. During a product launch at webNanny, we had 2 weeks for 4 weeks of work. I negotiated to push 3 features to v2, implemented core features with automated tests, and we launched on time with quality. The deferred features were added in the next sprint.'",
+      "explanation": "Show you're organized, communicate proactively, and balance speed with quality. Demonstrate ability to say no to unrealistic expectations while finding solutions. Avoid saying you just work longer hours.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "Tell me about a time you disagreed with a team member or manager",
+      "answer": "**Show respect, reasoning, and resolution**\n\n**Example**:\n'At webNanny, my manager wanted to use MongoDB for our transaction-heavy order system. I believed PostgreSQL was better due to ACID guarantees. I scheduled a meeting, presented a comparison document showing trade-offs, explained why consistency was critical for financial data, and suggested a proof-of-concept. We tested both, and the data showed PostgreSQL reduced inconsistency errors to near zero. My manager appreciated the thorough analysis, and we went with PostgreSQL. It taught me the value of data-driven discussions.'",
+      "explanation": "Never badmouth anyone. Show you can disagree respectfully, back opinions with data, listen to others, and reach collaborative decisions. Focus on the resolution and what you learned.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "Describe a time you failed",
+      "answer": "**Honest failure + Learning**\n\n**Example**:\n'In my first year at webNanny, I deployed a feature without proper load testing. Within hours of release, our API started timing out due to an N+1 query problem under high load. I quickly rolled back, spent the evening optimizing queries and adding database indexes, and redeployed the next day. Since then, I always do performance testing before deployment and have a rollback plan ready. I also created a checklist for our team that includes load testing. This failure made me a more careful and thorough developer.'",
+      "explanation": "Choose a real failure but not catastrophic. Focus more on the lesson learned and improvements made. Show accountability, quick action to fix, and growth from the experience.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 8,
+      "question": "How do you handle stress or pressure?",
+      "answer": "**Coping mechanisms + Example**\n\n**Example**:\n'I stay calm by breaking problems into manageable pieces and focusing on what I can control. During a production outage at Freshen affecting 10,000 users, I stayed focused: checked logs, identified the issue (database connection pool exhausted), increased pool size temporarily, then implemented proper connection management. I also communicated updates to stakeholders every 30 minutes. After resolution, I documented the incident and improved our monitoring. I find that having a systematic approach and clear communication reduces stress significantly.'",
+      "explanation": "Show you handle pressure well with specific strategies. Provide an example of staying calm in crisis. Emphasize problem-solving, not panic. Mention healthy coping mechanisms if appropriate.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "Tell me about a time you showed leadership",
+      "answer": "**Leadership without title**\n\n**Example**:\n'Though not formally a team lead, I took initiative when our team struggled with code quality. I noticed repetitive bugs and inconsistent patterns. I proposed and organized weekly code review sessions, created coding guidelines, and mentored 2 junior developers on best practices. I also introduced automated linting and pre-commit hooks. Over 3 months, our bug count decreased by 35%, and code review became a positive learning culture rather than criticism. This showed me that leadership is about influence and initiative, not just titles.'",
+      "explanation": "Leadership doesn't require a title. Show initiative, influence, mentoring, or driving positive change. Highlight how you motivated others and achieved results. Demonstrate ownership and impact.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "Why do you want to work here?",
+      "answer": "**Research company + Align with goals**\n\n**Template**:\n1. Company-specific facts (products, culture, tech stack)\n2. How it aligns with your skills/interests\n3. What you can contribute\n\n**Example**:\n'I'm impressed by [Company]'s focus on microservices architecture and cloud-native solutions, which aligns perfectly with my experience at webNanny. I've been following your engineering blog and love how you prioritize scalability and developer experience. Your tech stack - Spring Boot, React, Kubernetes - matches my expertise, and I'm excited about working on [specific product]. I believe I can contribute immediately, especially in optimizing backend performance, which I've done successfully in my previous roles.'",
+      "explanation": "Do your homework. Mention specific things about the company (tech, culture, products, values). Show genuine interest and excitement. Connect your background to their needs. Avoid generic answers about money or location.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 11,
+      "question": "Where do you see yourself in 5 years?",
+      "answer": "**Show ambition + Realistic growth**\n\n**Example**:\n'In 5 years, I see myself as a Senior Engineer or Technical Lead, architecting systems and mentoring developers. I want to deepen my expertise in distributed systems and cloud architecture, perhaps earning AWS Solutions Architect certification. I'm also interested in contributing to open source and speaking at tech conferences to give back to the community. Long-term, I'd like to play a key role in technical strategy and decisions. But in the near term, I'm focused on mastering the technologies at [Company] and delivering impactful work.'",
+      "explanation": "Show ambition but stay realistic and relevant to the company. Mention technical growth, potential leadership, and continued learning. Avoid saying you want their boss's job or want to start your own company.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "question": "Describe your ideal work environment",
+      "answer": "**Balance + Research company culture**\n\n**Example**:\n'I thrive in collaborative environments with strong engineering culture. I value code reviews, pair programming, and knowledge sharing - they accelerate learning. I prefer agile methodology with regular feedback cycles rather than long waterfall projects. Autonomy is important to me; I work best when trusted to solve problems creatively. I also appreciate companies that invest in professional development, like conference attendance or online courses. Work-life balance matters too - I'm productive during work hours and believe rest improves creativity.'",
+      "explanation": "Describe environment matching the company's culture (research beforehand). Balance independence with teamwork. Mention factors like collaboration, learning opportunities, autonomy, and work-life balance. Be honest but adaptable.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 13,
+      "question": "How do you stay updated with technology?",
+      "answer": "**Show continuous learning**\n\n**Example**:\n'I'm passionate about continuous learning. I follow tech blogs like Martin Fowler, Medium publications, and company engineering blogs. I'm active on GitHub and contribute to open source occasionally. I take online courses - recently completed a course on Kubernetes and microservices patterns. I also attend local meetups and webinars when possible. Practically, I experiment with new technologies through side projects, like when I built my SmartList app to learn React Native and Spring Boot integration. I believe hands-on experience is the best way to truly learn.'",
+      "explanation": "Show genuine interest in learning through specific examples. Mention blogs, courses, conferences, side projects, open source, meetups. Demonstrate you're proactive about skill development, not just learning when required.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 14,
+      "question": "Tell me about a time you had to learn something quickly",
+      "answer": "**Fast learning + Application**\n\n**Example**:\n'At Freshen, we decided to migrate from REST to GraphQL for our mobile API. I had no GraphQL experience and had 2 weeks to implement it. I spent the first 3 days on intensive learning - official docs, tutorials, and a Udemy course. Then I built a small prototype to understand resolvers, schemas, and N+1 query problems. I implemented our first GraphQL endpoint, wrote tests, and documented patterns for the team. By the deadline, we had 5 endpoints migrated. My quick learning approach - theory first, then practical application - proved effective.'",
+      "explanation": "Show you can learn quickly under pressure. Describe your learning methodology (docs, courses, hands-on). Emphasize successful application of new knowledge. Demonstrate adaptability and self-motivation.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "How do you handle feedback or criticism?",
+      "answer": "**Positive attitude + Growth mindset**\n\n**Example**:\n'I view feedback as an opportunity to improve. During a code review, a senior developer pointed out that my API design wasn't RESTful and had security vulnerabilities. Instead of being defensive, I asked questions to understand better and researched best practices. I refactored the code and thanked them for the detailed feedback. I even created a document on API design guidelines for our team. That feedback made me a better developer. I actively seek feedback during 1-on-1s because external perspective helps identify blind spots.'",
+      "explanation": "Show you're receptive, not defensive. Provide example where feedback improved your work. Demonstrate humility, willingness to learn, and proactive feedback-seeking. Avoid saying you never get negative feedback.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 16,
+      "question": "Describe a time you worked with a difficult person",
+      "answer": "**Diplomacy + Problem-solving**\n\n**Example**:\n'I worked with a colleague who was very critical in code reviews, often rejecting PRs without constructive feedback. Instead of complaining, I scheduled a coffee chat to understand their perspective. I learned they had high standards from past experiences with bugs. I suggested a compromise: I'd write more detailed PR descriptions explaining my decisions, and they'd provide specific feedback instead of just 'this is wrong'. We also paired on a feature to align on standards. Our relationship improved significantly, and code reviews became collaborative rather than confrontational.'",
+      "explanation": "Never badmouth anyone. Show empathy and effort to understand their perspective. Focus on resolution through communication. Demonstrate emotional intelligence and conflict resolution skills.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 17,
+      "question": "What motivates you at work?",
+      "answer": "**Intrinsic motivation + Impact**\n\n**Example**:\n'I'm motivated by solving complex problems and seeing the impact of my work. When I optimized our API response time from 800ms to 150ms, knowing that 10,000 daily users experienced faster app performance was incredibly satisfying. I also love learning - every project teaches me something new. Team collaboration energizes me; pair programming sessions and knowledge sharing are highlights of my week. Recognition matters too, but the primary motivation is craftsmanship - writing clean, efficient code and building systems I'm proud of.'",
+      "explanation": "Focus on intrinsic motivators (learning, problem-solving, impact) over extrinsic ones (money, title). Show passion for the craft. Connect motivation to delivering value. Be authentic and enthusiastic.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 18,
+      "question": "How do you prioritize tasks when everything is urgent?",
+      "answer": "**Framework + Communication**\n\n**Example**:\n'I use a priority matrix: Impact vs Effort. I also clarify true urgency with stakeholders - often 'urgent' means 'I want it soon' rather than 'business is blocked'. At webNanny, I once had 4 'urgent' tasks. I listed them with estimated effort and business impact, discussed with my manager, and we agreed on order: P0 bug fix (blocking users), then API for partner integration (contract deadline), then feature request (nice-to-have). I communicated timelines transparently to stakeholders. This approach prevents thrashing and ensures high-impact work gets done first.'",
+      "explanation": "Show systematic approach (frameworks, criteria). Emphasize communication with stakeholders to set realistic expectations. Demonstrate you don't just react but think strategically about priorities.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "Tell me about a time you went above and beyond",
+      "answer": "**Extra effort + Impact**\n\n**Example**:\n'During a critical release at Freshen, we discovered a data migration issue at 6 PM on Friday. The team was exhausted and wanted to postpone. I volunteered to stay and fix it because Monday's launch was promised to clients. I worked until midnight, wrote a safe migration script with rollback plan, tested thoroughly in staging, and executed in production. I documented everything for the team. Monday's launch was successful. My manager recognized this effort, but more importantly, we kept our commitment to clients. I believe ownership means doing what's necessary, even when it's inconvenient.'",
+      "explanation": "Show initiative beyond job description. Highlight impact of your extra effort. Demonstrate ownership and commitment. Don't make it seem like you always work late - frame it as exceptional circumstances.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "Why are you leaving your current job? / Why did you leave your last job?",
+      "answer": "**Stay positive + Growth focus**\n\n**Example**:\n'I've grown tremendously at Freshen and appreciate the opportunities I've had. However, I'm looking for new challenges in [specific area, e.g., large-scale distributed systems, cloud-native architecture]. Your company's work in [specific technology/domain] aligns perfectly with where I want to grow. I'm at a point where I want to work on more complex systems and have greater impact. This role offers that growth opportunity while leveraging my existing skills. I'm excited about the potential to contribute to [specific company project/goal].'",
+      "explanation": "NEVER badmouth current/previous employer. Focus on what you're moving toward (growth, new challenges, better fit) not running from (bad boss, low pay). Keep it positive, professional, and focused on career development.",
+      "difficulty": "Medium"
+    }
+  ]
+}

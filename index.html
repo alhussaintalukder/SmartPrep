@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPrep - Interview Preparation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>SmartPrep</h1>
+                <p>Interview Preparation</p>
+            </div>
+            <ul class="topic-list" id="topicList">
+                <!-- Topics will be loaded dynamically -->
+            </ul>
+            <div class="progress-section">
+                <h3>Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">0 / 0 completed</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <button class="nav-btn" id="prevBtn" onclick="prevQuestion()">
+                    <span>←</span> Previous
+                </button>
+                <div class="question-info">
+                    <span id="currentTopic">Select a Topic</span>
+                    <span class="question-counter" id="questionCounter">0 / 0</span>
+                </div>
+                <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">
+                    Next <span>→</span>
+                </button>
+            </div>
+
+            <!-- Question Section -->
+            <div class="question-section">
+                <div class="difficulty-badge" id="difficultyBadge">Medium</div>
+                <h2 class="question-text" id="questionText">
+                    Welcome to SmartPrep! Select a topic from the left sidebar to start practicing interview questions.
+                </h2>
+            </div>
+
+            <!-- Answer/Explanation Tabs -->
+            <div class="tabs-section">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="showTab('answer')" id="answerTab">Answer</button>
+                    <button class="tab-btn" onclick="showTab('explanation')" id="explanationTab">Explanation</button>
+                    <button class="tab-btn" onclick="showTab('code')" id="codeTab">Code Example</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="answerPane">
+                        <p id="answerText">Select a question to see the answer.</p>
+                    </div>
+                    <div class="tab-pane" id="explanationPane">
+                        <p id="explanationText">Select a question to see the explanation.</p>
+                    </div>
+                    <div class="tab-pane" id="codePane">
+                        <pre><code id="codeText">// Code example will appear here</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Numbers List -->
+            <div class="question-numbers">
+                <h4>Questions</h4>
+                <div class="numbers-grid" id="numbersGrid">
+                    <!-- Question numbers will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Mark as Complete -->
+            <div class="actions">
+                <button class="action-btn" id="markCompleteBtn" onclick="toggleComplete()">
+                    ✓ Mark as Complete
+                </button>
+                <button class="action-btn secondary" onclick="shuffleQuestions()">
+                    🔀 Shuffle Questions
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

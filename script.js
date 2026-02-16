@@ -32,7 +32,45 @@ let completedQuestions = JSON.parse(localStorage.getItem('smartprep_completed') 
 document.addEventListener('DOMContentLoaded', () => {
     renderTopicList();
     updateOverallProgress();
+    initializeSidebar();
 });
+
+// Initialize sidebar state from localStorage
+function initializeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const container = document.querySelector('.container');
+    const isMobile = window.innerWidth <= 768;
+    
+    // On mobile, sidebar starts collapsed by default
+    // On desktop, check localStorage
+    if (isMobile) {
+        sidebar.classList.add('collapsed');
+        container.classList.add('sidebar-collapsed');
+    } else {
+        const isCollapsed = localStorage.getItem('smartprep_sidebar_collapsed') === 'true';
+        if (isCollapsed) {
+            sidebar.classList.add('collapsed');
+            container.classList.add('sidebar-collapsed');
+        }
+    }
+}
+
+// Toggle sidebar collapse/expand
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const container = document.querySelector('.container');
+    const isCollapsed = sidebar.classList.toggle('collapsed');
+    
+    // Toggle class on container for styling toggle button
+    container.classList.toggle('sidebar-collapsed', isCollapsed);
+    
+    const isMobile = window.innerWidth <= 768;
+    
+    // Save state to localStorage only on desktop
+    if (!isMobile) {
+        localStorage.setItem('smartprep_sidebar_collapsed', isCollapsed);
+    }
+}
 
 // Render topic list in sidebar
 function renderTopicList() {

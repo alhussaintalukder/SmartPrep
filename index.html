@@ -16,8 +16,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- Sidebar Toggle Button -->
+        <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="Toggle sidebar">
+            <span class="toggle-icon">☰</span>
+        </button>
+        
         <!-- Left Sidebar Navigation -->
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div class="logo">
                 <h1><a href="https://alhusso.com/smartprep" style="color: inherit; text-decoration: none;">SmartPrep</a></h1>
                 <p>Interview Preparation</p>
@@ -34,8 +39,11 @@
             </div>
         </nav>
 
+        <!-- Backdrop for mobile sidebar -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
         <!-- Main Content Area -->
-        <main class="content">
+        <main class="content" id="mainContent">
             <!-- Top Navigation -->
             <div class="top-nav">
                 <button class="nav-btn" id="prevBtn" onclick="prevQuestion()">

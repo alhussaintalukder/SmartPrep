@@ -11,6 +11,7 @@ const topics = [
     { id: 'typescript', name: 'TypeScript', icon: '📘', file: 'data/typescript.json' },
     { id: 'react', name: 'React.js', icon: '⚛️', file: 'data/react.json' },
     { id: 'react-native', name: 'React Native', icon: '📱', file: 'data/react-native.json' },
+    { id: 'native-android', name: 'Native Android (Java)', icon: '🤖', file: 'data/native-android.json' },
     { id: 'rdbms', name: 'RDBMS', icon: '🗄️', file: 'data/rdbms.json' },
     { id: 'sql', name: 'SQL', icon: '🗄️', file: 'data/sql.json' },
     { id: 'dsa', name: 'DSA', icon: '🧮', file: 'data/dsa.json' },

@@ -1,11 +1,11 @@
-Topic Name: DSA (Use Java code for code examples)
+Topic Name: Native Android (Java)
 
-Create a comprehensive interview preparation topic for DSA with exactly 100 questions following these specifications:
+Create a comprehensive interview preparation topic for Native Android (Java) with exactly 100 questions following these specifications:
 
 ## REQUIREMENTS:
 
 ### Content Quality (CRITICAL):
-1. 100 questions total covering the MOST COMMON interview questions for DSA
+1. 100 questions total covering the MOST COMMON interview questions for Native Android
 2. Questions must FULLY COVER the topic - from fundamentals to advanced concepts
 3. Each question must include:
    - Clear, concise question text
@@ -19,12 +19,12 @@ Create a comprehensive interview preparation topic for DSA with exactly 100 ques
 
 ### File Structure (CRITICAL):
 1. Create 20 separate files, each with exactly 5 questions
-2. File naming: DSA-part1.json, DSA-part2.json, ..., DSA-part20.json
+2. File naming: native-android-part1.json, native-android-part2.json, ..., native-android-part20.json
 3. Location: E:\projects\alhussain\SmartPrep\data\
 
 ### JSON Format (CRITICAL):
 
-**Part 1 file (DSA-part1.json):**
+**Part 1 file (native-android-part1.json):**
 ```json
 {
   "topic": "[Topic Display Name]",
@@ -59,7 +59,7 @@ Create a comprehensive interview preparation topic for DSA with exactly 100 ques
 ```
 CRITICAL: Part 1 ends with `},` after question 5 (NOT `}],` - no closing brackets!)
 
-**Part 2-19 files (DSA-part2.json through DSA-part19.json):**
+**Part 2-19 files (native-android-part2.json through native-android-part19.json):**
 ```json
     {
       "id": 6,
@@ -101,7 +101,7 @@ CRITICAL NOTES:
 - NO extra newlines with orphan commas
 - File must end immediately after the comma of the last question: `...}\n    },`
 
-**Part 20 file (DSA-part20.json):**
+**Part 20 file (native-android-part20.json):**
 ```json
     {
       "id": 96,
@@ -159,14 +159,14 @@ Note: Closing brackets `]}` to complete the JSON structure
 1. **Merge files into single JSON:**
    ```powershell
    cd E:\projects\alhussain\SmartPrep\data
-   1..20 | ForEach-Object { Get-Content "DSA-part$_.json" } | Set-Content "DSA.json" -Encoding UTF8
+   1..20 | ForEach-Object { Get-Content "native-android-part$_.json" } | Set-Content "Native Android.json" -Encoding UTF8
    ```
    IMPORTANT: Change to data directory first, then use relative paths!
 
 2. **Verify merged file is valid JSON:**
    ```powershell
    cd E:\projects\alhussain\SmartPrep\data
-   Get-Content "DSA.json" | ConvertFrom-Json | Out-Null
+   Get-Content "Native Android.json" | ConvertFrom-Json | Out-Null
    Write-Host "JSON is valid!"
    ```
    If this command succeeds without errors, the JSON is valid.
@@ -174,28 +174,28 @@ Note: Closing brackets `]}` to complete the JSON structure
 3. **Verify question count:**
    ```powershell
    cd E:\projects\alhussain\SmartPrep\data
-   (Get-Content "DSA.json" | ConvertFrom-Json).questions.Count
+   (Get-Content "Native Android.json" | ConvertFrom-Json).questions.Count
    ```
    Should output: 100
 
 4. **Verify question IDs are sequential 1-100:**
    ```powershell
    cd E:\projects\alhussain\SmartPrep\data
-   $data = Get-Content "DSA.json" | ConvertFrom-Json; $ids = $data.questions | ForEach-Object { $_.id }; $missing = 1..100 | Where-Object { $_ -notin $ids }; if ($missing) { "Missing: $missing" } else { "All IDs 1-100 present" }
+   $data = Get-Content "Native Android.json" | ConvertFrom-Json; $ids = $data.questions | ForEach-Object { $_.id }; $missing = 1..100 | Where-Object { $_ -notin $ids }; if ($missing) { "Missing: $missing" } else { "All IDs 1-100 present" }
    ```
    Should output: "All IDs 1-100 present"
 
 5. **ONLY AFTER verification succeeds, add to script.js:**
    In E:\projects\alhussain\SmartPrep\script.js, add new topic to the topics array in appropriate position:
-   ```DSA
-   { id: '[topic-id]', name: '[Topic Display Name]', icon: '[emoji]', file: 'data/DSA.json' },
+   ```Native Android
+   { id: '[topic-id]', name: '[Topic Display Name]', icon: '[emoji]', file: 'data/Native Android.json' },
    ```
    Choose appropriate emoji for the topic.
 
 6. **ONLY AFTER script.js is updated AND verified, delete part files:**
    ```powershell
    cd E:\projects\alhussain\SmartPrep\data
-   Remove-Item "DSA-part*.json"
+   Remove-Item "native-android-part*.json"
    Write-Host "Part files deleted"
    ```
 
@@ -223,7 +223,7 @@ Note: Closing brackets `]}` to complete the JSON structure
 1. Keep code concise but complete
 2. Include comments for clarity
 3. Show practical, real-world usage
-4. Use multiple languages when relevant (Java, DSA, Python, SQL, etc.)
+4. Use multiple languages when relevant (Java, Native Android, Python, SQL, etc.)
 5. Include configuration examples when applicable (XML, YAML, properties)
 6. For questions without code examples, omit the "code" field entirely
 
@@ -307,4 +307,4 @@ Note: Closing brackets `]}` to complete the JSON structure
 ✅ No part files remaining after completion
 
 
-NOW, create the DSA topic following ALL specifications above.
+NOW, create the Native Android topic following ALL specifications above.

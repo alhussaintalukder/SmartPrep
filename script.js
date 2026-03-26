@@ -20,7 +20,12 @@ const topics = [
     { id: 'mysql', name: 'MySQL & Database', icon: '🗄️', file: 'data/mysql.json' },
     { id: 'rest-api', name: 'REST API', icon: '🔗', file: 'data/rest-api.json' },
     { id: 'docker', name: 'Docker & DevOps', icon: '🐳', file: 'data/docker.json' },
-    { id: 'behavioral', name: 'Behavioral', icon: '🎯', file: 'data/behavioral.json' }
+    { id: 'behavioral', name: 'Behavioral', icon: '🎯', file: 'data/behavioral.json' },
+    { id: 'mock-interview-1', name: 'Mock Interview 1', icon: '🎤', file: 'data/mock-interview-1.json' },
+    { id: 'mock-interview-2', name: 'Mock Interview 2', icon: '🎤', file: 'data/mock-interview-2.json' },
+    { id: 'mock-interview-3', name: 'Mock Interview 3', icon: '🎤', file: 'data/mock-interview-3.json' },
+    { id: 'mock-interview-4', name: 'Mock Interview 4', icon: '🎤', file: 'data/mock-interview-4.json' },
+    { id: 'mock-interview-5', name: 'Mock Interview 5', icon: '🎤', file: 'data/mock-interview-5.json' }
 ];
 
 // State management

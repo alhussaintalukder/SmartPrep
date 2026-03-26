@@ -1,0 +1,93 @@
+{
+  "topic": "Mock Interview 2 - Java Developer (Hard Technical)",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Design a scalable booking service in Java Spring Boot for high concurrency. What architecture and data consistency strategy would you choose?",
+      "answer": "I would design the service as a set of bounded microservices: Booking Service, Inventory/Availability Service, Payment Service, and Notification Service. For synchronous paths, Booking calls Availability and Payment through resilient REST clients with strict timeouts and retries. For non-blocking workflows, events are published asynchronously for notifications and analytics. To avoid overbooking, I would use optimistic locking with version columns or atomic update queries on inventory rows. For distributed consistency, I would use the Saga pattern with compensating actions instead of a global transaction. I would also implement idempotency keys for create-booking operations so retries do not duplicate bookings.",
+      "explanation": "Strong answers combine service boundaries, concurrency control, resilience, and eventual consistency patterns.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 2,
+      "question": "How would you prevent duplicate order or booking creation when clients retry due to network timeouts?",
+      "answer": "I would enforce idempotency at API level using a client-provided idempotency key. The key, request hash, status, and response payload are stored in a durable table with a unique constraint. On duplicate requests with the same key and same payload, the API returns the original response. If the payload differs for the same key, the request is rejected as conflict. This approach handles retries safely and protects downstream systems from duplicate side effects.",
+      "explanation": "Idempotency is a production-critical safeguard for payment/booking style APIs.",
+      "difficulty": "Hard",
+      "code": "@PostMapping(\"/api/v1/bookings\")\npublic ResponseEntity<BookingResponse> create(\n        @RequestHeader(\"Idempotency-Key\") String key,\n        @Valid @RequestBody CreateBookingRequest request) {\n\n    BookingResponse response = bookingService.createWithIdempotency(key, request);\n    return ResponseEntity.status(HttpStatus.CREATED).body(response);\n}"
+    },
+    {
+      "id": 3,
+      "question": "In Spring Data JPA, how do you solve N+1 query problems in read-heavy endpoints?",
+      "answer": "I first confirm N+1 with SQL logs and query count metrics. For predictable fetch paths, I use fetch joins or EntityGraph to load required associations in one query. For list endpoints, I project into DTOs directly to avoid unnecessary object graph loading. I also keep pagination at database level and avoid fetching large lazy collections in loops. The key is to tune per use case instead of globally switching everything to eager loading.",
+      "explanation": "The interviewer is checking whether you can diagnose and fix ORM performance issues without introducing new problems.",
+      "difficulty": "Hard",
+      "code": "@Query(\"select b from Booking b join fetch b.customer where b.status = :status\")\nList<Booking> findByStatusWithCustomer(@Param(\"status\") BookingStatus status);"
+    },
+    {
+      "id": 4,
+      "question": "What is your strategy for API Gateway concerns such as authentication, rate limiting, and observability?",
+      "answer": "At gateway layer, I centralize cross-cutting concerns to reduce duplication across services. I validate JWT/OAuth2 tokens, attach identity headers for downstream services, and enforce per-client or per-route rate limits. I add request correlation IDs and structured access logs for traceability. I also capture gateway metrics such as latency percentiles, error rates, and throttling counts. This gives both security and operational visibility before traffic reaches internal services.",
+      "explanation": "Good answers show gateway as an edge policy and observability control point, not only a router.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 5,
+      "question": "How would you secure microservice-to-microservice communication in a Spring Cloud environment?",
+      "answer": "I would secure east-west traffic with mTLS where possible, and propagate service identity via short-lived tokens. Authorization should be enforced on sensitive downstream endpoints, not only at gateway. Secrets and certificates should be stored in managed secret stores and rotated periodically. I also enforce least privilege for service accounts and network-level restrictions between services. Finally, I would audit inter-service access and monitor anomalous traffic patterns.",
+      "explanation": "Security maturity includes identity, transport encryption, authorization boundaries, and operational controls.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 6,
+      "question": "A Spring Boot service has sporadic latency spikes. How do you investigate and fix it end to end?",
+      "answer": "I would start with golden signals: latency, traffic, errors, and saturation. Then I correlate spikes with deployments, GC pauses, database wait time, external dependency latency, and thread pool metrics. I inspect traces to identify slow segments and logs for exception bursts or timeouts. If root cause is DB, I review query plans and indexing; if JVM, I inspect GC behavior and heap pressure; if network, I validate retries and timeout cascading. Immediate mitigation might include rollback or scaling, followed by permanent fixes and alert improvements.",
+      "explanation": "Interviewers value a structured, evidence-based incident process more than isolated tuning tips.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 7,
+      "question": "Write thread-safe counter logic in Java and explain when synchronized vs AtomicInteger is preferable.",
+      "answer": "For simple atomic increment/decrement operations, AtomicInteger is preferred due to non-blocking CAS-based performance. For compound operations spanning multiple variables or invariants, synchronized or explicit locks are safer for correctness. The choice depends on operation complexity and contention profile. I prioritize correctness first, then benchmark under realistic load.",
+      "explanation": "This tests practical concurrency decision-making and understanding of atomicity boundaries.",
+      "difficulty": "Hard",
+      "code": "class CounterService {\n    private final AtomicInteger counter = new AtomicInteger(0);\n\n    public int increment() {\n        return counter.incrementAndGet();\n    }\n\n    public int get() {\n        return counter.get();\n    }\n}"
+    },
+    {
+      "id": 8,
+      "question": "How would you design CI/CD quality gates for a Java microservices project using Jenkins and Maven?",
+      "answer": "I would define gated stages: compile, unit tests, static analysis, security scanning, integration tests, and artifact publication. Pull requests must pass all quality gates before merge. Versioned artifacts and container images are immutable and promoted across environments with the same digest. Deployments include health checks, smoke tests, and automated rollback triggers. I also keep pipeline duration optimized with parallel stages and test balancing to maintain rapid feedback.",
+      "explanation": "A robust CI/CD answer balances release speed and production safety.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 9,
+      "question": "How do you design database transactions and isolation in Spring Boot for financial or booking workflows?",
+      "answer": "I keep transactions short and scoped to a single service boundary. For critical write paths, I use appropriate isolation and explicit locking only where needed to avoid excessive contention. I avoid long-running transactional business logic and external network calls inside transactions. Where workflows cross services, I use eventual consistency with outbox/event patterns and compensation rather than distributed XA transactions. This approach provides reliability while preserving throughput.",
+      "explanation": "The interviewer is checking transaction discipline and understanding of distributed system trade-offs.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 10,
+      "question": "How would you introduce caching in a Spring Boot API without serving stale or inconsistent data?",
+      "answer": "I would cache only well-defined read-heavy data with clear TTL and invalidation rules. Cache keys must include all dimensions that affect response shape, such as tenant or locale. On write operations, I would use write-through/write-around strategy plus targeted cache eviction to keep consistency acceptable for the business requirement. I would monitor hit ratio, eviction patterns, and stale-read incidents to tune policy. For critical strong-consistency paths, I avoid caching altogether.",
+      "explanation": "Effective caching requires clear consistency policy, not just adding Redis annotations everywhere.",
+      "difficulty": "Hard",
+      "code": "@Cacheable(cacheNames = \"bookingById\", key = \"#id\")\npublic BookingDto getBooking(Long id) {\n    return bookingRepository.findDtoById(id)\n        .orElseThrow(() -> new NotFoundException(\"Booking not found\"));\n}\n\n@CacheEvict(cacheNames = \"bookingById\", key = \"#id\")\npublic void updateBookingStatus(Long id, BookingStatus status) {\n    bookingRepository.updateStatus(id, status);\n}"
+    },
+    {
+      "id": 11,
+      "question": "Explain your approach to backward-compatible API evolution when multiple clients depend on your service.",
+      "answer": "I treat backward compatibility as a contract. I avoid breaking field removals or semantic changes in existing versions and prefer additive evolution first. When breaking change is unavoidable, I introduce versioned endpoints and provide migration guidance with deprecation timelines. I use consumer-driven contract tests to detect compatibility regressions early. Communication and measurable adoption tracking are essential before retiring older versions.",
+      "explanation": "This shows ownership of API lifecycle and real-world client coordination.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 12,
+      "question": "How would you answer a system design prompt: 'Build a resilient notification service for booking confirmations'?",
+      "answer": "I would design notification as an asynchronous, event-driven service consuming booking-confirmed events from a message broker. The service would support multiple channels (email, SMS, push) via provider adapters and use retry with exponential backoff plus dead-letter queues for failed deliveries. Idempotency keys prevent duplicate sends during retries. I would persist delivery state for audit and reconciliation, and expose operational dashboards for success/failure rate, queue lag, and provider latency. This architecture isolates core booking flow from notification failures while preserving traceability.",
+      "explanation": "A strong answer emphasizes decoupling, reliability patterns, observability, and operational readiness.",
+      "difficulty": "Hard"
+    }
+  ]
+}

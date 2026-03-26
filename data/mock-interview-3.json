@@ -1,0 +1,89 @@
+{
+  "topic": "Mock Interview 3 - HR + Behavioral + Scenario (15 Minutes)",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Tell me about yourself in a way that is relevant to this Java Developer role.",
+      "answer": "I am a software engineer with over three years of hands-on product development experience, especially in Java Spring Boot backend systems and React-based client applications. In my current role, I build and maintain production features such as booking flows, transaction-related modules, and API integrations. I also work with MySQL/PostgreSQL, Dockerized deployments, and cross-functional collaboration with QA and frontend teams. I am now looking to contribute to a Bangladesh-based organization where I can grow as a backend-focused engineer and deliver scalable Java solutions with strong engineering discipline.",
+      "explanation": "A strong introduction is concise, role-aligned, and highlights impact, stack, and motivation.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "Why do you want to join Nano Information Technology specifically?",
+      "answer": "This role aligns well with my core strengths in Java, Spring Boot, REST APIs, and production-oriented backend work. I am particularly interested in the scope that includes microservices, Spring Cloud components, and server operations, because I want to continue developing both engineering depth and delivery ownership. Nano Information Technology’s profile as a software-focused organization in Bangladesh is attractive to me as I want to contribute locally while applying the standards I have practiced in international remote projects.",
+      "explanation": "The answer should connect company context, role requirements, and personal career direction.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "Describe one challenging backend problem you solved and what result it produced.",
+      "answer": "In one project, we had unstable API response times in a booking-related flow during peak usage windows. I led a focused debugging effort by reviewing logs, database query timing, and endpoint-level metrics. We identified heavy query patterns and inefficient service-level data fetching, then introduced indexing and query optimization with cleaner service boundaries. As a result, response consistency improved, and production incidents reduced noticeably during peak periods. The key learning was to rely on measurable diagnostics before implementing fixes.",
+      "explanation": "Behavioral answers are strongest when they include context, action, result, and learning.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "How do you prioritize tasks when deadlines are tight and multiple teams are waiting on backend delivery?",
+      "answer": "I prioritize based on business impact, dependency chain, and delivery risk. I first identify blockers that affect multiple teams, then sequence high-impact items that unlock frontend, QA, or release pipelines. I keep communication transparent with realistic estimates, and I split large work into smaller milestones for faster integration. If scope risk appears, I proactively align with stakeholders on what is must-have versus can-be-deferred. This approach helps maintain quality while still meeting deadlines.",
+      "explanation": "This demonstrates ownership, communication, and practical prioritization under pressure.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "How do you handle disagreements during code review with senior or peer engineers?",
+      "answer": "I focus on engineering outcomes rather than personal preference. I try to understand the reviewer’s concern, validate it against requirements and production impact, and support my position with clear reasoning, benchmarks, or references to team standards. If there is still disagreement, I suggest a short technical discussion and align on a documented team decision so future reviews remain consistent. This helps preserve trust and keeps delivery moving.",
+      "explanation": "Interviewers look for professionalism, collaboration, and evidence-based decision-making.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "Scenario: A production issue occurs at night and users cannot complete bookings. What do you do first?",
+      "answer": "First, I assess user impact and stabilize service quickly through incident protocol, such as rollback or temporary mitigation if required. In parallel, I check error rates, logs, and recent changes to isolate the probable root area. I keep communication active with stakeholders so they have accurate status updates. Once service is restored, I perform root-cause analysis with preventive actions such as stronger alerting, tests, or guardrails in deployment. My priority is always user impact first, then long-term prevention.",
+      "explanation": "A high-quality response balances fast mitigation, communication, and post-incident improvement.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 7,
+      "question": "How do you ensure code quality and maintainability in fast-moving projects?",
+      "answer": "I keep code quality consistent through clear layering, naming conventions, small focused methods, and robust validation/error handling. I rely on code reviews, automated tests, and static analysis in CI to catch regressions early. I also keep technical documentation up to date for APIs and critical workflows so onboarding and maintenance are easier. When deadlines are tight, I still protect core quality checks and avoid shortcuts that create long-term instability.",
+      "explanation": "The interviewer is checking your engineering discipline under delivery pressure.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "How do you work with QA to reduce defects before release?",
+      "answer": "I engage QA early by sharing endpoint contracts, expected status codes, and edge-case behavior before feature completion. We align on test scenarios, including negative cases and data-boundary conditions. I support QA with reproducible test data and quick turnaround on bug triage. This early and iterative collaboration typically reduces last-minute surprises and improves release confidence.",
+      "explanation": "Cross-functional collaboration is a major success factor in product teams.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "What is one technical area you are actively improving right now?",
+      "answer": "I am actively deepening my expertise in microservices reliability patterns, especially around resilience, observability, and deployment safety in distributed Java systems. I already have practical experience in backend delivery, and now I am intentionally strengthening architecture-level decision making for larger scale systems. This helps me contribute beyond feature coding and support long-term platform stability.",
+      "explanation": "Good answers show growth mindset linked directly to the role.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 10,
+      "question": "Scenario: You are assigned a feature with unclear requirements and a short timeline. How do you proceed?",
+      "answer": "I quickly clarify core outcomes and non-negotiable constraints with product or business stakeholders, then draft a lean implementation proposal with assumptions. I break the work into phased deliverables so essential functionality is delivered first and enhancements can follow. I document open questions and risks early to avoid hidden surprises later. This method keeps momentum while reducing rework caused by ambiguity.",
+      "explanation": "This response demonstrates structured execution under ambiguity.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "Why should we hire you over other candidates with similar experience years?",
+      "answer": "I bring a practical combination of product delivery experience, Java backend focus, and full-stack collaboration strength. I have worked on real business features from requirement analysis through deployment and production support, not only isolated coding tasks. I am comfortable with both technical depth and ownership mindset, including quality, performance, and reliability concerns. I can contribute quickly while still maintaining long-term engineering standards.",
+      "explanation": "The answer should be confident, specific, and grounded in demonstrable value.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "Do you have any questions for us?",
+      "answer": "Yes, I do. First, how is success measured for this role in the first three to six months? Second, what are the current backend challenges your team most wants this role to solve? Third, how does the engineering team approach code quality and release safety in production? These questions help me understand expectations and how I can create impact quickly.",
+      "explanation": "Strong candidate questions demonstrate maturity, ownership, and intent to deliver impact.",
+      "difficulty": "Easy"
+    }
+  ]
+}

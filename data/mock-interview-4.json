@@ -1,0 +1,89 @@
+{
+  "topic": "Mock Interview 4 - Mixed Panel Round (15 Minutes)",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Technical: How would you design a clean layered architecture in Spring Boot for maintainability and testability?",
+      "answer": "I follow a layered structure with clear boundaries: controller for transport, service for business logic, repository for data access, and DTO mapping between API and domain layers. Controllers remain thin and delegate to services. Services enforce business rules and transaction boundaries. Repositories focus only on persistence logic. This separation improves readability, simplifies unit testing, and reduces regression risk when features evolve.",
+      "explanation": "Panel interviewers evaluate whether the candidate can keep systems maintainable as features grow.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 2,
+      "question": "Technical: What is your approach to building resilient inter-service communication in microservices?",
+      "answer": "I define strict timeout budgets, apply retries with exponential backoff only for safe operations, and use circuit breakers to prevent cascading failures. I include fallback behavior where business-appropriate and add idempotency for retried write paths. Observability is essential, so I use correlation IDs and distributed tracing for end-to-end diagnosis. This approach improves reliability without hiding persistent failures.",
+      "explanation": "A strong answer combines resilience patterns with controlled retry strategy and observability.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 3,
+      "question": "Technical: How do you choose between MySQL and PostgreSQL for a new backend module?",
+      "answer": "I evaluate expected workload, query complexity, transaction requirements, and team familiarity. PostgreSQL is often preferred for advanced SQL capabilities and complex analytical queries, while MySQL is also strong for high-throughput transactional systems with straightforward relational patterns. Final choice depends on domain constraints, operational tooling, and long-term scaling strategy. Consistency of ecosystem support and backup/recovery procedures also influences the decision.",
+      "explanation": "The interviewer is checking practical decision criteria rather than database brand preference.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "Technical: How would you secure a production Spring Boot API beyond basic authentication?",
+      "answer": "I implement layered security: authenticated identity tokens, role-based authorization, strict input validation, HTTPS-only transport, secure secret management, and controlled exposure of operational endpoints. I also add audit trails for sensitive actions and apply gateway-level protections like rate limiting and IP controls where needed. Security checks are integrated into CI through dependency scanning and static analysis. This reduces both application-level and operational attack surfaces.",
+      "explanation": "Panel members expect depth in security controls, not only login implementation.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 5,
+      "question": "Technical: If API latency degrades after a deployment, what would your first diagnostic sequence be?",
+      "answer": "I start by comparing baseline and current metrics for latency, error rate, and saturation. Then I correlate degradation with deployment artifacts, config changes, and dependency health. I inspect traces to identify the slow segment, review DB query performance, and validate thread pool or connection pool pressure. If customer impact is high, I mitigate quickly through rollback or controlled traffic reduction before deep root-cause analysis.",
+      "explanation": "This demonstrates production incident discipline and prioritization under pressure.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 6,
+      "question": "Behavioral: Tell us about a time you handled conflicting priorities from product, QA, and engineering.",
+      "answer": "In a release cycle, product requested additional features while QA raised critical defects and engineering had pending refactors. I aligned everyone on release goals and categorized items by business risk and user impact. We locked must-fix issues first, moved non-critical enhancements to the next sprint, and documented technical debt with timelines. This preserved release quality and kept stakeholders aligned without last-minute confusion.",
+      "explanation": "This answer shows ownership, communication, and trade-off management.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "Behavioral: How do you respond when you receive critical feedback on your implementation?",
+      "answer": "I treat critical feedback as a quality improvement opportunity. First, I clarify the concern and validate it against requirements and production impact. Then I propose a concrete fix plan and timeline, and I update my review checklist to avoid repeating the same issue. This approach turns feedback into measurable engineering growth.",
+      "explanation": "Interviewers want to see maturity, accountability, and learning agility.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 8,
+      "question": "Behavioral: Describe how you collaborate with DevOps in deployment and post-release monitoring.",
+      "answer": "I align with DevOps early on release prerequisites, environment variables, rollout strategy, and rollback criteria. Before deployment, I confirm health checks, logging, and alert thresholds. After release, I monitor key service indicators and stay available for rapid triage if anomalies appear. This partnership shortens incident response time and improves production stability.",
+      "explanation": "Strong collaboration with DevOps is critical for backend ownership in production.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "Behavioral: Why are you transitioning from your current role to this opportunity?",
+      "answer": "I value my current experience, especially in full-stack product delivery, but I want my next step to be more backend-focused in a role centered on Java microservices and production engineering depth. This opportunity aligns with my technical direction and offers a chance to contribute to a Bangladesh-based software organization with meaningful delivery impact. My goal is to grow into stronger backend system ownership while continuing to deliver reliable business outcomes.",
+      "explanation": "The answer remains positive, forward-looking, and aligned with the role.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 10,
+      "question": "HR/Compensation: What is your expected salary range for this position?",
+      "answer": "Based on my current responsibilities, technical fit with this role, and the market range for mid-level Java backend engineers, I am expecting a monthly salary in the range of BDT 55,000 to 65,000. I am open to discussion based on the total compensation package, growth opportunities, and role expectations.",
+      "explanation": "A professional salary response should be realistic, confident, and flexible.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 11,
+      "question": "HR/Availability: If selected, when can you join?",
+      "answer": "I can join after completing my current employer’s standard transition period. I can provide a clear handover and coordinate to join as early as possible. If urgent onboarding is required, I can discuss a practical overlap plan for smoother transition.",
+      "explanation": "This response balances professionalism toward the current employer with flexibility for the new role.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "question": "HR/Commitment: Are you comfortable with full-time office work in Dhaka and long-term growth with this team?",
+      "answer": "Yes, I am comfortable with full-time office work in Dhaka and I am specifically looking for a stable, long-term role where I can contribute consistently and grow with the engineering team. I am motivated by ownership, collaboration, and measurable delivery impact.",
+      "explanation": "The panel is assessing practical fit with work model, location, and retention likelihood.",
+      "difficulty": "Easy"
+    }
+  ]
+}

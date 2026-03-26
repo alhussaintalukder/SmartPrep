@@ -1,0 +1,92 @@
+{
+  "topic": "Mock Interview 1 - Java Developer (Nano Information Technology)",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Please introduce yourself and explain why you are a strong fit for this Java Developer role.",
+      "answer": "I am a Full-Stack Software Engineer with over 3 years of production experience building mobile and web applications. My backend specialization is Java and Spring Boot, and I have delivered REST APIs, authentication, booking workflows, and payment-related features for real business platforms. I also have hands-on experience with MySQL, PostgreSQL, Redis, Docker, Nginx, and cloud deployments. This role is a strong fit because it focuses on Java backend engineering, scalable APIs, microservices-oriented architecture, and cross-team delivery, which aligns directly with my day-to-day work and long-term career focus.",
+      "explanation": "A strong opening answer should connect experience directly to the job requirements: Java/Spring Boot, APIs, databases, DevOps exposure, and collaboration.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "How do you design a production-ready REST API in Spring Boot?",
+      "answer": "I follow a contract-first and consistency-driven approach. First, I define clear resources, versioning strategy, request/response schemas, and validation rules. In Spring Boot, I separate controller, service, and repository layers, and use DTOs to avoid exposing internal entities. I implement global exception handling with standardized error payloads, input validation using Bean Validation, and API documentation using OpenAPI/Swagger. For production readiness, I include pagination, filtering, idempotency for critical write operations, structured logging, and proper HTTP status codes. I also add integration tests to validate endpoint behavior before release.",
+      "explanation": "This demonstrates API design maturity: architecture, validation, error handling, observability, and testing.",
+      "difficulty": "Medium",
+      "code": "@RestController\n@RequestMapping(\"/api/v1/bookings\")\nclass BookingController {\n\n    private final BookingService bookingService;\n\n    BookingController(BookingService bookingService) {\n        this.bookingService = bookingService;\n    }\n\n    @PostMapping\n    public ResponseEntity<BookingResponse> create(@Valid @RequestBody CreateBookingRequest request) {\n        BookingResponse response = bookingService.create(request);\n        return ResponseEntity.status(HttpStatus.CREATED).body(response);\n    }\n}"
+    },
+    {
+      "id": 3,
+      "question": "What microservices patterns would you use for a scalable Java backend, and why?",
+      "answer": "I typically start with domain-driven service boundaries to avoid tightly coupled services. For service communication, I use synchronous REST where immediate response is needed and asynchronous messaging for decoupled workflows. I rely on API Gateway for routing and cross-cutting concerns, Service Discovery for dynamic service lookup, and centralized configuration for environment consistency. I also apply resilience patterns such as retries with backoff, circuit breakers, timeouts, and bulkheads. For distributed transactions, I prefer eventual consistency with Saga-style orchestration or choreography, depending on complexity.",
+      "explanation": "This answer maps directly to the job posting: API Gateway, Service Discovery, Config Server, and scalable architecture principles.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 4,
+      "question": "How would you implement API Gateway, Service Discovery, and Config Server in a Spring Cloud setup?",
+      "answer": "I would externalize all environment-specific settings into Spring Cloud Config Server backed by Git. Each microservice reads its configuration at startup and can be refreshed safely when required. For service discovery, I would register services with Eureka so inter-service communication can use logical names instead of fixed host:port values. For the edge layer, I would place Spring Cloud Gateway to handle routing, authentication filters, rate limiting, and request tracing. This setup improves maintainability, reduces hard-coded infrastructure dependencies, and supports easier scaling across environments.",
+      "explanation": "A good answer should show practical understanding of how these components work together operationally.",
+      "difficulty": "Hard",
+      "code": "spring:\n  application:\n    name: booking-service\n  config:\n    import: optional:configserver:http://config-server:8888\n\neureka:\n  client:\n    service-url:\n      defaultZone: http://discovery-server:8761/eureka\n\n# Gateway route example\n# spring.cloud.gateway.routes[0].id=booking-service\n# spring.cloud.gateway.routes[0].uri=lb://booking-service\n# spring.cloud.gateway.routes[0].predicates[0]=Path=/bookings/**"
+    },
+    {
+      "id": 5,
+      "question": "What factors guide your SQL vs NoSQL decision for a feature?",
+      "answer": "I decide based on data consistency, access pattern, and scalability requirements. If the domain needs strong relational integrity, transactions, and complex joins, I choose SQL databases such as PostgreSQL or MySQL. If the feature requires flexible schema, high write throughput, or denormalized document access, I evaluate NoSQL. I also consider operational maturity of the team, backup/recovery strategy, and reporting requirements. In many systems, a polyglot approach works best: SQL for transactional core data and NoSQL for specialized high-scale or semi-structured workloads.",
+      "explanation": "This reflects practical engineering judgment, not a one-size-fits-all preference.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "How do you optimize backend performance in Spring Boot applications?",
+      "answer": "I begin with measurement, not assumptions. I use metrics and tracing to locate bottlenecks in database calls, external service latency, and thread utilization. Common improvements include adding proper indexes, reducing N+1 query issues, using pagination, introducing caching for read-heavy endpoints, and tuning connection pools. I also optimize payload size, avoid blocking calls in critical paths when possible, and ensure log volume is controlled. Finally, I validate gains with load testing and monitor post-release to confirm sustained improvement.",
+      "explanation": "Performance optimization should be evidence-driven and validated with measurable outcomes.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "How do you secure a Spring Boot REST API for production?",
+      "answer": "I enforce authentication and authorization using Spring Security with JWT or OAuth2 depending on the ecosystem. I apply role-based access controls at endpoint and method levels, validate all inputs, and sanitize outputs where needed. I disable sensitive actuator endpoints publicly, enforce HTTPS, and store secrets in secure configuration management rather than source code. I also implement audit logging for critical actions and use rate limiting at gateway level. Security testing and dependency vulnerability checks are part of CI before deployment.",
+      "explanation": "This demonstrates layered security: identity, transport, input hardening, secrets management, and CI controls.",
+      "difficulty": "Hard",
+      "code": "@Bean\nSecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {\n    return http\n        .csrf(csrf -> csrf.disable())\n        .authorizeHttpRequests(auth -> auth\n            .requestMatchers(\"/api/v1/public/**\").permitAll()\n            .requestMatchers(\"/api/v1/admin/**\").hasRole(\"ADMIN\")\n            .anyRequest().authenticated())\n        .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))\n        .build();\n}"
+    },
+    {
+      "id": 8,
+      "question": "What is your CI/CD approach with Git, Maven/Gradle, and Jenkins?",
+      "answer": "My pipeline starts with branch protection and pull request review. On each commit or PR, Jenkins runs build, unit tests, static analysis, and security checks. If all checks pass, artifacts are versioned and container images are built and tagged consistently. For deployment, I use environment-specific configuration, automated health checks, and rollback strategy. I keep pipeline stages fast and deterministic so feedback reaches developers quickly, and I monitor deployment metrics after release to detect regressions.",
+      "explanation": "Shows complete lifecycle thinking: quality gates, artifact management, deployment safety, and post-deploy monitoring.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "Describe your experience with Docker, Linux servers, and Nginx/Tomcat in production.",
+      "answer": "I have deployed and maintained backend workloads using Docker on Linux environments, with Nginx as reverse proxy and SSL termination. I focus on stable server operations: environment configuration, log management, restart policies, and health checks. For Java services, I ensure JVM options and memory settings are tuned per environment. I also monitor CPU, memory, and response-time trends to proactively address issues before they affect users. This operational experience helps me deliver not only code, but reliable runtime behavior.",
+      "explanation": "The role expects hands-on server and environment ownership; this answer highlights practical production responsibility.",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "How do you troubleshoot a production issue where one microservice suddenly has high latency?",
+      "answer": "I follow a structured incident workflow. First, I validate scope and impact using dashboards and alert timelines. Then I inspect service-level metrics, logs, and traces to identify whether the issue is compute saturation, database slowdown, downstream dependency latency, or thread-pool exhaustion. I compare current deployment and config changes against the last known good state. If needed, I apply mitigation quickly—such as rollback, traffic shaping, or scaling—before deep root cause analysis. After recovery, I document RCA with preventive actions like query tuning, timeout policies, and stronger alert thresholds.",
+      "explanation": "A strong answer combines speed of mitigation with disciplined root-cause process and prevention.",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 11,
+      "question": "How do you collaborate with frontend, QA, and DevOps teams for end-to-end delivery?",
+      "answer": "I align early on API contracts, acceptance criteria, and release scope so all teams work from the same definition of done. I share API documentation, sample payloads, and clear error contracts with frontend developers. With QA, I help define edge cases and test data strategy. With DevOps, I ensure deployment configuration, environment variables, and observability are prepared before release. I communicate risks early and provide quick feedback during integration so cross-functional delivery remains predictable.",
+      "explanation": "Collaboration quality directly affects delivery speed and stability; this answer reflects mature cross-team execution.",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "question": "What would be your 90-day plan if selected for this role?",
+      "answer": "In the first 30 days, I would understand existing architecture, service dependencies, CI/CD flow, and production runbooks while delivering small bug fixes to learn safely. In days 31-60, I would take ownership of one service area, improve at least one measurable quality metric (for example API latency, test coverage, or deployment reliability), and contribute to documentation. In days 61-90, I would drive a medium-sized backend enhancement aligned with business goals, mentor on code quality practices, and help reduce operational friction through better monitoring and automation.",
+      "explanation": "This answer communicates ownership, measurable impact, and balanced technical and team contribution.",
+      "difficulty": "Easy"
+    }
+  ]
+}
